@@ -65,9 +65,7 @@ exports.updateWashPlan = async (req, res, next) => {
 
   let washPlan;
   try {
-    console.log(washPlanId);
     washPlan = await WashPlan.findById(washPlanId);
-    console.log(washPlan);
   } catch (err) {
     const error = new HttpError(
       'Something went wrong, could not update wash plan.',
@@ -113,7 +111,6 @@ exports.deleteWashPlan = async (req, res, next) => {
       'Something went wrong, could not delete wash plan.',
       500
     );
-    console.log(err);
     return next(error);
   }
   if (!washPlan) {
